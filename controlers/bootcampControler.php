@@ -6,9 +6,10 @@ class bootcampController {
     }
 
     public function index(){
-       $bootcamps =  $this->bootcamp->get_botcamps();
+        //controlo modelos
+       $bootcamps =  $this->bootcamp->get_bootcamps();
 
-       include "./views/bootCampView.php";
+       include '/views/bootcampView.php';
     }
 }
 

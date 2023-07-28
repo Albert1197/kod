@@ -7,25 +7,26 @@
             private $conn;
     
             public function __construct() {
-                $this->conn = new mysqli("127.0.0.1","root","12345", "bootcamps");
+                $this->conn = new mysqli("127.0.0.1","root","", "bootcamps");
                 if($this->conn->connect_error){
                     die("conection fail: " . $this->conn->connect_error);
                 }
-                echo "Connection succel";
+                echo "Connection successfully";
             }
     
-            //obteniendo datos 
-            public function get_botcamps(){
-                $sql = "SELECT * FROM botcamps";
+            //obteniendo datos de los bootcamps
+            public function get_bootcamps(){
+                //creo la consulta
+                $sql = "SELECT * FROM bootcamp1";
                 $result = $this->conn->query($sql);
-                $botcamps = array();
+                $bootcamp1 = array();
                 //transformar a un array
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){
-                        $botcamps[] = $row;
+                        $bootcamp1[] = $row;
                     }
                 }
-                return $botcamps;
+                return $bootcamp1;
             }
         }
     
